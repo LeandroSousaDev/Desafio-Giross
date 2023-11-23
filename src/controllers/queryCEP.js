@@ -1,19 +1,21 @@
 const instancia = require('../instancias')
 
 const queryCEP = async (req, res) => {
+    const { cep } = req.params
 
     try {
-        const resposta = await instancia.get('41640490/json/')
+        const resposta = await instancia.get(`${cep}/json/`)
 
-        const cep = resposta.data
+        const endereco = resposta.data
 
-        if (cep.erro == true) {
+        if (endereco.erro == true) {
             return res.json('cep não exixti')
         }
 
+
         let cepProximo = []
 
-        let resposta2 = await instancia.get(`${cep.uf}/${cep.localidade}/${cep.bairro}/json/`)
+        let resposta2 = await instancia.get(`${endereco.uf}/${endereco.localidade}/${endereco.bairro}/json/`)
 
         for (const x of resposta2.data) {
             cepProximo.push(x.cep)

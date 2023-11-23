@@ -8,7 +8,7 @@ const routes = express()
 routes.post('/sign-up', regiterUser);
 routes.post('/sign-in', loginUser)
 
-routes.get('/queryCEP', queryCEP)
+routes.get('/:cep', queryCEP)
 
 
 
