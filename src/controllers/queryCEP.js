@@ -1,4 +1,6 @@
+const knex = require('../database/conection')
 const instancia = require('../instancias')
+const data = require('../tools/funcionTime')
 
 const queryCEP = async (req, res) => {
     const { cep } = req.params
@@ -21,7 +23,17 @@ const queryCEP = async (req, res) => {
             cepProximo.push(x.cep)
         }
 
-        res.json(cepProximo)
+        const newSearch = {
+            user_name: req.user.user_name,
+            date: data(),
+            cep: cep,
+            neighborhood: endereco.bairro,
+            id_user: req.user.id
+        }
+
+        await knex('historic').insert(newSearch).returning("*");
+
+        return res.json(cepProximo)
 
     } catch (error) {
         return res.json(error.message)
