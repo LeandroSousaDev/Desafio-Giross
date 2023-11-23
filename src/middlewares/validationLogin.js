@@ -1,3 +1,4 @@
+require("dotenv").config();
 const knex = require("../database/conection");
 const jwt = require("jsonwebtoken");
 const { senhaSegura } = require('../controllers/users')
@@ -12,7 +13,7 @@ async function validationLogin(req, res, next) {
     try {
         const token = authorization.replace("Bearer ", "").trim();
 
-        const { id } = jwt.verify(token, senhaSegura);
+        const { id } = jwt.verify(token, process.env.JWT_HASH);
 
         const userExist = await knex('users').where({ id }).first();
 

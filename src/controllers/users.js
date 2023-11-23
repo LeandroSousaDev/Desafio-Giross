@@ -50,7 +50,7 @@ const loginUser = async (req, res) => {
             res.status(400).json({ mensagem: "Senha inválida" });
         }
 
-        const token = jwt.sign({ id: user.id }, senhaSegura, { expiresIn: '8h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_HASH, { expiresIn: '8h' });
 
         const { user_password, ...userLogged } = user;
 
