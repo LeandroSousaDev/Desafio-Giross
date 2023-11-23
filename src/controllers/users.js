@@ -2,7 +2,7 @@ const knex = require('../database/conection')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const senhasegura = 'umaSenhaSegura'
+const senhaSegura = 'umaSenhaSegura'
 
 const regiterUser = async (req, res) => {
     const { name, email, password } = req.body;
@@ -50,7 +50,7 @@ const loginUser = async (req, res) => {
             res.status(400).json({ mensagem: "Senha inválida" });
         }
 
-        const token = jwt.sign({ id: user.id }, senhasegura, { expiresIn: '8h' });
+        const token = jwt.sign({ id: user.id }, senhaSegura, { expiresIn: '8h' });
 
         const { user_password, ...userLogged } = user;
 
@@ -61,4 +61,4 @@ const loginUser = async (req, res) => {
     }
 }
 
-module.exports = { regiterUser, loginUser };
+module.exports = { regiterUser, loginUser, senhaSegura };
