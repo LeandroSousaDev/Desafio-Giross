@@ -25,7 +25,6 @@ export default function Login() {
         try {
             const response = await api.post('/login', form);
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('usuario', response.data.usuario.nome);
             navigate("/principal");
         } catch (error) {
             setErrorUsuario(error.response.data.mensagem)
@@ -35,18 +34,11 @@ export default function Login() {
     return (
         <div className='background'>
 
-
-
             <div className='login-tela'>
 
                 <div className='login-texto-botao'>
 
-                    <h1>
-                        OI
-                    </h1>
-                    <p>
-                        OI
-                    </p>
+
                     <Link to={'/cadastro'}>
                         <Botao children='Cadastre-se' />
                     </Link>

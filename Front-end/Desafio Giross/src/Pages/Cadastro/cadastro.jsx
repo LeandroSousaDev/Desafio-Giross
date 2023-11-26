@@ -35,7 +35,7 @@ export default function Cadastro() {
         }
 
         try {
-            await api.post('/usuario', form);
+            await api.post('/cadastro', form);
             navigate("/");
         } catch (error) {
             setErrorUsuario(error.response.data.mensagem)
