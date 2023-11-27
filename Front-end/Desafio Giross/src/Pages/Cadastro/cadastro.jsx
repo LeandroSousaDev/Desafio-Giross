@@ -35,10 +35,10 @@ export default function Cadastro() {
         }
 
         try {
-            await api.post('/cadastro', form);
+            await api.post('/sign-up', form);
             navigate("/");
         } catch (error) {
-            setErrorUsuario(error.response.data.mensagem)
+            setErrorUsuario(error.messagem)
         }
     }
 

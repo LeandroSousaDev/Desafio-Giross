@@ -23,11 +23,11 @@ export const Login = () => {
     async function submit(e) {
         e.preventDefault();
         try {
-            const response = await api.post('/login', form);
+            const response = await api.post('/sign-in', form);
             localStorage.setItem('token', response.data.token);
             navigate("/principal");
         } catch (error) {
-            setErrorUsuario(error.response.data.mensagem)
+            setErrorUsuario(error.messagem)
         }
     }
 
