@@ -1,4 +1,3 @@
-import './Rotas.css'
 import {
   Routes,
   Route,
@@ -22,9 +21,10 @@ function Rotas() {
         <Route path='/' element={<Login />} />
         <Route path='/cadastro' element={<Cadastro />} />
 
+        <Route path='/principal/' element={<Principal />} />
+        <Route path='/historico/' element={<Historico />} />
+
         <Route element={<RotasPrivadas redirectTo={'/'} />}>
-          <Route path='/principal/' element={<Principal />} />
-          <Route path='/historico/' element={<Historico />} />
         </Route>
       </Routes>
     </>
