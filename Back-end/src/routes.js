@@ -4,7 +4,6 @@ const { queryCEP } = require('./controllers/queryCEP');
 const validationLogin = require('./middlewares/validationLogin')
 const historic = require('./controllers/historic')
 
-
 const routes = express()
 
 routes.post('/sign-up', regiterUser);
