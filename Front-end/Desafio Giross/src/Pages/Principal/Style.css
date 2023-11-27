@@ -1,0 +1,49 @@
+.principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+.formulario {
+    height: 400px;
+    width: 513px;
+
+    background-color: #ffffff;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultados {
+    height: 600px;
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-around;
+}
+
+.endereco {
+
+    height: 270px;
+    width: 550px;
+
+    background-color: #ffffff;
+
+}
+
+.cep-proximo {
+    height: 270px;
+    width: 550px;
+
+    background-color: #ffffff;
+}

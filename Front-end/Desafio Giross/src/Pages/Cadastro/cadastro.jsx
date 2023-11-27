@@ -43,57 +43,57 @@ export default function Cadastro() {
     }
 
     return (
-        <>
-            <div className='background'>
 
-                <div className='cadastro-tela'>
-                    <div className='cadastro-formulario'>
+        <div className='background'>
 
-                        <h1 className='cadastro-formulario-titulo'>Cadastro</h1>
+            <div className='cadastro-tela'>
+                <div className='cadastro-formulario'>
 
-                        <form onSubmit={submit}>
-                            <Imput
-                                etiqueta='nome'
-                                type='text'
-                                name='nome'
-                                value={form.nome}
-                                onChange={input}
-                            />
+                    <h1 className='cadastro-formulario-titulo'>Cadastro</h1>
 
-                            <Imput
-                                etiqueta='email'
-                                type='text'
-                                name='email'
-                                value={form.email}
-                                onChange={input}
-                            />
+                    <form onSubmit={submit}>
+                        <Imput
+                            etiqueta='nome'
+                            type='text'
+                            name='nome'
+                            value={form.nome}
+                            onChange={input}
+                        />
 
-                            <Imput
-                                etiqueta='senha'
-                                type='password'
-                                name='senha'
-                                value={form.senha}
-                                onChange={input}
-                            />
+                        <Imput
+                            etiqueta='email'
+                            type='text'
+                            name='email'
+                            value={form.email}
+                            onChange={input}
+                        />
 
-                            <Imput
-                                etiqueta='confirmar senha'
-                                type='password'
-                                name='confirmar'
-                                value={confrmarSenha}
-                                onChange={e => setConfirmarSenha(e.target.value)}
-                            />
+                        <Imput
+                            etiqueta='senha'
+                            type='password'
+                            name='senha'
+                            value={form.senha}
+                            onChange={input}
+                        />
 
-                            <p className='cadastro-formulario-errosenha' >{errorUsuario}</p>
+                        <Imput
+                            etiqueta='confirmar senha'
+                            type='password'
+                            name='confirmar'
+                            value={confrmarSenha}
+                            onChange={e => setConfirmarSenha(e.target.value)}
+                        />
 
-                            <Botao children='Cadastrar' />
-                        </form>
+                        <p className='cadastro-formulario-errosenha' >{errorUsuario}</p>
 
-                        <Link className='cadastro-formulario-link' to={'/'}>Já tem cadastro? Clique aqui!</Link>
-                    </div>
+                        <Botao children='Cadastrar' />
+                    </form>
+
+                    <Link className='cadastro-formulario-link' to={'/'}>Já tem cadastro? Clique aqui!</Link>
                 </div>
-
             </div>
-        </>
+
+        </div>
+
     )
 }
