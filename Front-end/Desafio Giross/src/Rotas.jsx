@@ -23,9 +23,9 @@ function Rotas() {
 
 
 
+        <Route path='/principal/' element={<Principal />} />
+        <Route path='/historico/' element={<Historico />} />
         <Route element={<RotasPrivadas redirectTo={'/'} />}>
-          <Route path='/principal/' element={<Principal />} />
-          <Route path='/historico/' element={<Historico />} />
         </Route>
       </Routes>
     </>

@@ -6,7 +6,7 @@ import api from '../../service/instancia';
 import "./Style.css"
 
 
-export default function Login() {
+export const Login = () => {
     const navigate = useNavigate()
     const [errorUsuario, setErrorUsuario] = useState('')
     const [form, setForm] = useState({

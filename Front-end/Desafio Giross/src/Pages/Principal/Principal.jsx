@@ -3,28 +3,32 @@ import Input from "../../components/Input/Input"
 import Botao from "../../components/Botao/Botao"
 import api from '../../service/instancia'
 import { useState } from "react"
-import axios from "axios"
 
 export default function Principal() {
 
     const [cep, setCep] = useState('')
     const [errorUsuario, setErrorUsuario] = useState('')
-
     const [cepBuscado, setCepBuscado] = useState({})
 
     function imput(e) {
         setCep(e.target.value)
     }
 
+    function buscado(busca) {
+        const endereco = busca
+        setCepBuscado(endereco)
+    }
+
     async function submit(e) {
         e.preventDefault();
         try {
-            const response = await axios.get(`http://viacep.com.br/ws/01001000/json/`,
+            const response = await api.get(`/${imput}/json/`,
                 {
                     headers: {
                         Authorization: `${token}`
                     }
-                })
+                }
+            )
             buscado(response.data)
         } catch (error) {
             setErrorUsuario(error.message)
@@ -56,11 +60,10 @@ export default function Principal() {
                 </div >
 
                 <div className="resultados">
-                    <div className="endereco">
 
-                    </div>
                     <div className="cep-proximo">
-
+                        <h1>Ceps proximos</h1>
+                        <p></p>
                     </div>
 
                 </div>
